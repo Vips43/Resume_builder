@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@layer base{
+    .h3{
+        @apply text-gray-900 font-bold;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.25;
+    }
+}

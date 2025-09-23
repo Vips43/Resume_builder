@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/input.css">
+    <link rel="stylesheet" href="dist/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+</head>
+
+<body class="overflow-x-hidden min-h-screen *:transition-all *:duration-300">
+    <main
+        class="border border-gray-400 w-screen max-w-5xl bg-white mx-auto my-5 flex flex-col items-center justify-center">
+        <h1 class="text-gramain-400 capitalize underline text-center font-semibold text-3xl">
+            resume builder</h1>
+        <form id="myForm" class="my-5 flex flex-col">
+
+            <!-- level 1 basic info -->
+            <section class="flex flex-wrap bg-white shadow-md py-10 lg:mx-14 md:mx-10 mx-5 mt-5 rounded-lg">
+                <h3 class="capitalize text-2xl font-semibold w-full px-5 py-2">
+                    basic info:-</h3>
+                <div class="py-2 flex flex-col gap-2 w-1/2 px-5">
+                    <label class="h3" for="name">1 - Enter your Name</label>
+                    <input class="border border-gray-400 ml-5 px-5 py-1 rounded-lg placeholder:italic" type="text"
+                        id="name" name="name" placeholder="Enter your Name">
+                </div>
+                <div class="py-2 flex flex-col gap-2 w-1/2 px-5">
+                    <label class="h3" for="email">2 - Email</label>
+                    <input class="border border-gray-400 ml-5 px-5 py-1 rounded-lg placeholder:italic" type="email"
+                        id="email" name="email" placeholder="Email">
+                </div>
+                <div class="py-2 flex flex-col gap-2 w-1/2 px-5">
+                    <label class="h3" for="phone">3 - Phone Number</label>
+                    <input class="border border-gray-400 ml-5 px-5 py-1 rounded-lg placeholder:italic" type="phone"
+                        id="phone" name="phone" placeholder="Phone Number">
+                </div>
+                <div class="py-2 flex flex-col gap-2 w-1/2 px-5">
+                    <label class="h3" for="addrs">4 - Enter Address</label>
+                    <input class="border border-gray-400 ml-5 px-5 py-1 rounded-lg placeholder:italic" type="textarea"
+                        id="addrs" name="addrs" placeholder="In short Ex: Dahisar,Mumbai">
+                </div>
+                <div class="py-2 flex flex-col gap-2 w-1/2 px-5">
+                    <label class="h3" for="addrs">4 - LinkdIn</label>
+                    <input class="border border-gray-400 ml-5 px-5 py-1 rounded-lg placeholder:italic" type="textarea"
+                        id="linkdin" name="addrs" placeholder="LinkdIn profile URL">
+                </div>
+                <div class="py-2 flex flex-col gap-2 w-1/2 px-5">
+                    <label class="h3" for="addrs">4 - GitHub</label>
+                    <input class="border border-gray-400 ml-5 px-5 py-1 rounded-lg placeholder:italic" type="textarea"
+                        id="github" name="addrs" placeholder="GitHub Link">
+                </div>
+            </section>
+
+
+            <!-- level 2 Personal Information -->
+            <section class="flex flex-wrap bg-white shadow-md py-10 lg:mx-14 md:mx-10 mx-5 mt-5 rounded-lg">
+                <h3 class="capitalize text-2xl font-semibold w-full px-5 py-2">
+                    Personal Information:-
+                </h3>
+                <div class="py-2 flex flex-col gap-2 w-1/2 px-5">
+                    <label class="h3" for="pInfo">5 - Personal Information</label>
+                    <input class="border border-gray-400 ml-5 px-5 py-1 rounded-lg placeholder:italic" type="text"
+                        id="pInfo" name="pInfo" placeholder="Personal Information">
+                </div>
+                <div class="py-2 flex flex-col gap-2 w-1/2 px-5">
+                    <label class="h3" for="careerObj">6 - Career Objectives</label>
+                    <input class="border border-gray-400 ml-5 px-5 py-1 rounded-lg placeholder:italic" type="text"
+                        id="careerObj" name="bIntro" placeholder="Brief Introduction">
+                </div>
+            </section>
+            <!-- level 3 Education  -->
+            <section class="flex flex-wrap bg-white shadow-md py-10 lg:mx-14 md:mx-10 mx-5 mt-5 rounded-lg">
+                <div class="w-full flex items-center pr-5">
+                    <h3 class="capitalize text-2xl font-semibold w-full px-5 py-2">
+                        Education:-
+                    </h3>
+                    <div id="edu-btn" class="px-2 py-1 rounded-full hover:shadow-lg hover:bg-gray-50 cursor-pointer">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                </div>
+                <div class="py-2 flex flex-col gap-2 w-1/2 px-5">
+                    <label class="h3" for="courseName"> Course name</label>
+                    <input class="border border-gray-400 ml-5 px-5 py-1 rounded-lg placeholder:italic" type="text"
+                        id="courseName" name="courseName" placeholder="Education">
+                </div>
+                <div class="py-2 flex flex-col gap-2 w-1/2 px-5">
+                    <label class="h3" for="collegeName">College name</label>
+                    <input class="border border-gray-400 ml-5 px-5 py-1 rounded-lg placeholder:italic" type="text"
+                        id="collegeName" name="collegeName" placeholder="Education">
+                </div>
+                <ul id="edUL" class="ml-5 pl-5 list-disc">
+                    <!-- <li>
+                        <strong>Bachelor of Computer Applications (BCA) </strong>
+                        <p class="text-sm">LS & SS Patkar Varde College Goregaon | 2019 </p>
+                    </li> -->
+                </ul>
+
+
+            </section>
+
+            <!-- level 3 Work Experience -->
+            <section class="flex flex-wrap bg-white shadow-md py-10 lg:mx-14 md:mx-10 mx-5 mt-5 rounded-2xl">
+                <h3 class="capitalize text-2xl font-semibold w-full px-5 py-2">
+                    Work Experience:-
+                </h3>
+                <div class="py-2 flex flex-col gap-2 w-1/2 px-5">
+                    <label class="h3" for="cName">1 - Company Name</label>
+                    <input class="border border-gray-400 ml-5 px-5 py-1 rounded-lg placeholder:italic" type="text"
+                        id="cName" name="cName" placeholder="Company Name">
+                </div>
+                <div class="py-2 flex flex-col gap-2 w-1/2 px-5">
+                    <label class="h3" for="wProfile">2 - Job Profile</label>
+                    <input class="border border-gray-400 ml-5 px-5 py-1 rounded-lg placeholder:italic" type="text"
+                        id="wProfile" name="wProfile" placeholder="Ex: web developer /etc..">
+                </div>
+                <div class="py-2 flex flex-col gap-2 w-1/2 px-5">
+                    <label class="h3" for="wExp">3 - Experience in Years</label>
+                    <input class="border border-gray-400 ml-5 px-5 py-1 rounded-lg placeholder:italic" type="text"
+                        id="wExp" name="wExp" placeholder="Ex: 1year 2months">
+                </div>
+                <div class="py-2 flex flex-col gap-2 w-1/2 px-5">
+                    <label class="h3" for="wDesc">4 - Description</label>
+                    <input class="border border-gray-400 ml-5 px-5 py-1 rounded-lg placeholder:italic" type="text"
+                        id="wDesc" name="wDesc" placeholder="Work Experience description">
+                </div>
+            </section>
+
+            <!-- level 4 Skills-->
+            <section class="flex flex-col bg-white shadow-md py-10 lg:mx-14 md:mx-10 mx-5 mt-5 rounded-2xl">
+                <h3 class="capitalize text-2xl font-semibold w-full px-5 py-2">
+                    Skills
+                </h3>
+                <div class="w-2/2 py-2 flex flex-col gap-2 px-5">
+                    <label class="h3" for="skills">Add skills</label>
+                    <div class="flex items-center gap-5">
+                        <input class="grow border border-gray-400 ml-5 px-5 py-1 rounded-lg placeholder:italic"
+                            type="text" id="skills" name="skills"
+                            placeholder="Ex: javascript, data entry, Accountant, etc..">
+                        <div id="skills-btn"
+                            class="px-2 py-1 rounded-full cursor-pointer hover:shadow-lg hover:bg-gray-50">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                    </div>
+                </div>
+                <ul id="skUl" class="mt-2 pl-5 flex flex-wrap gap-5">
+                    <!-- <li class="text-xs border border-gray-400 w-fit h-fit px-2 py-2 rounded-2xl">
+                        <span>web developer</span>
+                        <i class="fa-solid fa-xmark cursor-pointer"></i>
+                    </li> -->
+                </ul>
+            </section>
+
+            <!-- level 5 Projects -->
+            <section class="flex flex-wrap bg-white shadow-lg py-10 lg:mx-14 md:mx-10 mx-5 mt-5 rounded-2xl">
+                <div class="w-full flex items-center pr-5">
+                    <h3 class="capitalize text-2xl font-semibold w-full px-5 py-2">
+                        Projects
+                    </h3>
+                    <div onclick="projectBtn()" class="px-2 py-1 rounded-full hover:shadow-lg hover:bg-gray-50 cursor-pointer">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                </div>
+                <div class="py-2 flex flex-col gap-2 w-1/2 px-5">
+                    <label class="h3" for="pTitle">1 - Projects Title</label>
+                    <input class="border border-gray-400 ml-5 px-5 py-1 rounded-lg placeholder:italic" type="text"
+                        id="pTitle" name="pTitle" placeholder="Projects Title">
+                </div>
+                <div class="py-2 flex flex-col gap-2 w-1/2 px-5">
+                    <label class="h3" for="pDesc">2 - Projects Description</label>
+                    <input class="border border-gray-400 ml-5 px-5 py-1 rounded-lg placeholder:italic" type="text"
+                        id="pDesc" name="pDesc" placeholder="Projects Description">
+                </div>
+                <ul id="projectUl" class="ml-10 list-disc">
+                    <!-- <li class="">
+                        <strong>title</strong>
+                        <p>jiejfeifjei efijefjeijfe efieifiefjie </p>
+                    </li> -->
+                </ul>
+
+            </section>
+
+            <!-- <a href="resume.html" class="mx-auto my-5"> -->
+            <input type="submit" value="submit"
+                class="bg-gray-600 px-5 py-2 mx-auto my-5 hover:bg-gray-800 hover:text-white transition-all duration-500 cursor-pointer">
+            <!-- </a> -->
+
+        </form>
+
+    </main>
+
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>
