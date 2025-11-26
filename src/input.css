@@ -1,10 +1,85 @@
 @import "tailwindcss";
 
-@layer base{
-    .h3{
-        @apply text-gray-900 font-bold;
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 1.25;
-    }
+@layer base {
+ .h3 {
+  @apply text-gray-900 font-bold;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+ }
+ html {
+  font-family: "Poppins", sans-serif;
+ }
+ .size-sm {
+  font-size: 8px;
+  line-height: 8px;
+ }
+ .p-size {
+  font-size: 12px;
+  line-height: 1.6;
+ }
+ .gapp {
+  line-height: 5px;
+ }
+}
+@theme {
+ --color-dark-red: #ba0707;
+}
+@layer components {
+ .h2 {
+  @apply text-lg lg:text-3xl md:text-2xl sm:text-xl lg:bg-amber-500 md:bg-blue-600 transition-all;
+ }
+}
+
+/*ffefe*/
+
+.design {
+ width: 26px;
+ height: 33px;
+ background-color: #2c2c2c;
+ position: absolute;
+ top: 185px;
+ left: 141px;
+ transform: rotate(44deg);
+ z-index: 0;
+}
+
+.design::before,
+.design::after {
+ content: "";
+ /* background-color: black; */
+ position: absolute;
+ z-index: 0;
+}
+.design::before {
+ width: 30px;
+ height: 30px;
+ bottom: -1px;
+ left: -29px;
+ transform: rotate(-44deg);
+ border-bottom-right-radius: 19px;
+ box-shadow: 6.5px 3.5px 0 #fff;
+}
+.design::after {
+ width: 35px;
+ height: 35px;
+ bottom: -4px;
+ right: -35px;
+ border-radius: 50%;
+ box-shadow: -6px 0px 0 #fff;
+}
+.outer {
+ width: 150px;
+ height: 150px;
+ border: 1px solid #000;
+ margin: 20px auto;
+ border-radius: 50%;
+ display: grid;
+ place-items: center;
+}
+.inner {
+ width: 100px;
+ height: 100px;
+ border: 1px solid #000;
+ border-radius: 50%;
 }

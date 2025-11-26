@@ -10,7 +10,7 @@ let formData = {
     careerObj: '',
     education: [],
     work: {
-        companyName:'',
+        companyName: '',
         workProfile: '',
         workExp: '',
         workDesc: ''
@@ -34,7 +34,8 @@ let nameInput = document.getElementById('name'),
     workProfile = document.getElementById('wProfile'),
     workExp = document.getElementById('wExp'),
     workDesc = document.getElementById('wDesc'),
-    projectTitle = document.getElementById('pTitle'),
+    wDescIcon = document.getElementById('wDescIcon')
+projectTitle = document.getElementById('pTitle'),
     projectDesc = document.getElementById('pDesc'),
     projectUl = document.getElementById('projectUl'),
     eduBtn = document.getElementById('edu-btn'),
@@ -43,39 +44,34 @@ let nameInput = document.getElementById('name'),
     edUL = document.getElementById('edUL'),
     skillInput = document.getElementById('skills'),
     skillBtn = document.getElementById('skills-btn'),
-    skUl = document.getElementById('skUl')
+    skUl = document.getElementById('skUl'),
 
+    function projectBtn() {
+        formData.projects.projectTitle = projectTitle.value;
+        formData.projects.projectDesc = projectDesc.value;
+        if (projectTitle.value && projectDesc.value) {
 
-
-
-
-
-function projectBtn() {
-    formData.projects.projectTitle = projectTitle.value;
-    formData.projects.projectDesc = projectDesc.value;
-    if (projectTitle.value && projectDesc.value) {
-
-        let li = document.createElement('li'); 
-        li.innerHTML = `<strong>${projectTitle.value}</strong>
+            let li = document.createElement('li');
+            li.innerHTML = `<strong>${projectTitle.value}</strong>
                     <p>${projectDesc.value}</p>`;
 
-        projectUl.appendChild(li);
-        formData.projects.push({
-            projectTitle: projectTitle.value,
-            projectDesc: projectDesc.value
-        });
+            projectUl.appendChild(li);
+            formData.projects.push({
+                projectTitle: projectTitle.value,
+                projectDesc: projectDesc.value
+            });
 
-        projectTitle.value = '';
-        projectDesc.value = '';
+            projectTitle.value = '';
+            projectDesc.value = '';
+        }
     }
-}
 
 
 eduBtn.addEventListener('click', () => {
     if (courseInput.value && collegeInput.value) {
         let courseName = courseInput.value,
             collegeName = collegeInput.value
-            let li = document.createElement('li');
+        let li = document.createElement('li');
         li.innerHTML = `
         <strong>${courseName}</strong>
         <p class="text-sm">${collegeName}</p>
@@ -137,10 +133,18 @@ myForm.addEventListener('submit', (e) => {
 
     console.log(JSON.stringify(formData));
     console.log(formData.skills)
-    localStorage.clear()
+    // localStorage.clear()
     localStorage.setItem('formData', JSON.stringify(formData))
 
     window.location.href = 'resume.html'
 })
 
-
+function workDescBtn() {
+    wDescIcon.addEventListener("click", () => {
+        if (!workDesc.value) return alert("please enter")
+            else{
+        console.log('clicked');
+        }
+    })
+}
+workDescBtn();
