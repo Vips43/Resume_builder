@@ -27,7 +27,7 @@ profSumm.textContent = saveData.pInfo;
 careeObj.textContent = saveData.careerObj;
 skills.textContent = saveData.skills.join(', ');
 
-consteducationData = Array.isArray(saveData.education)? saveData.education : [saveData.education];
+const educationData = Array.isArray(saveData.education) ? saveData.education : [saveData.education];
 rEduUl.innerHTML = saveData.education.map(edu => {
     return `<li>
                 <strong>${edu.courseName}</strong>
@@ -36,7 +36,7 @@ rEduUl.innerHTML = saveData.education.map(edu => {
 }).join('')
 
 
-const projectData = Array.isArray(saveData.projects)? saveData.projects : [saveData.projects];
+const projectData = Array.isArray(saveData.projects) ? saveData.projects : [saveData.projects];
 projectUl.innerHTML = saveData.projects.map(project => {
     return `<li class="">
                 <strong>${project.projectTitle}</strong>
@@ -45,14 +45,23 @@ projectUl.innerHTML = saveData.projects.map(project => {
 }).join('')
 
 
-const workData = Array.isArray(saveData.work)? saveData.work : [saveData.work];
+const workData = Array.isArray(saveData.work) ? saveData.work : [saveData.work];
+
 let li = document.createElement('li');
-li.innerHTML = 
-    `<li>
-        <strong><p>${saveData.work.companyName} </p></strong>
-        <strong><span>${saveData.work.workProfile} | </span>
-        <span>${saveData.work.workExp}</span></strong>
-        <p class="text-sm ">${saveData.work.workDesc}</p>
-    </li>`
+li.innerHTML = workData.map(e => {
+    console.log(e.compName);
+    
+    return `
+    <h1 class="font-semibold">${e.compName}</h1>
+    <p class="text-sm">Working as a <span class="font-semibold text-base">${e.workProf}</span> from
+    <span class="font-semibold text-base ">${e.workEx}</span> </p>
+    <p class="text-gray-500 text-sm">${e.workDes}</p>
+    `
+}).join('')
 
 work.appendChild(li);
+
+localStorage.removeItem('data')
+
+
+

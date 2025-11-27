@@ -9,16 +9,9 @@ let formData = {
     pInfo: '',
     careerObj: '',
     education: [],
-    work: {
-        companyName: '',
-        workProfile: '',
-        workExp: '',
-        workDesc: ''
-    },
+    work: [],
     projects: [],
 }
-
-
 
 let myForm = document.getElementById('myForm')
 let nameInput = document.getElementById('name'),
@@ -34,8 +27,9 @@ let nameInput = document.getElementById('name'),
     workProfile = document.getElementById('wProfile'),
     workExp = document.getElementById('wExp'),
     workDesc = document.getElementById('wDesc'),
-    wDescIcon = document.getElementById('wDescIcon')
-projectTitle = document.getElementById('pTitle'),
+    addWorkExp = document.getElementById('addWorkExp'),
+    workExpShowUl = document.getElementById('workExpShowUl'),
+    projectTitle = document.getElementById('pTitle'),
     projectDesc = document.getElementById('pDesc'),
     projectUl = document.getElementById('projectUl'),
     eduBtn = document.getElementById('edu-btn'),
@@ -44,27 +38,27 @@ projectTitle = document.getElementById('pTitle'),
     edUL = document.getElementById('edUL'),
     skillInput = document.getElementById('skills'),
     skillBtn = document.getElementById('skills-btn'),
-    skUl = document.getElementById('skUl'),
+    skUl = document.getElementById('skUl')
 
-    function projectBtn() {
-        formData.projects.projectTitle = projectTitle.value;
-        formData.projects.projectDesc = projectDesc.value;
-        if (projectTitle.value && projectDesc.value) {
+function projectBtn() {
+    formData.projects.projectTitle = projectTitle.value;
+    formData.projects.projectDesc = projectDesc.value;
+    if (projectTitle.value && projectDesc.value) {
 
-            let li = document.createElement('li');
-            li.innerHTML = `<strong>${projectTitle.value}</strong>
+        let li = document.createElement('li');
+        li.innerHTML = `<strong>${projectTitle.value}</strong>
                     <p>${projectDesc.value}</p>`;
 
-            projectUl.appendChild(li);
-            formData.projects.push({
-                projectTitle: projectTitle.value,
-                projectDesc: projectDesc.value
-            });
+        projectUl.appendChild(li);
+        formData.projects.push({
+            projectTitle: projectTitle.value,
+            projectDesc: projectDesc.value
+        });
 
-            projectTitle.value = '';
-            projectDesc.value = '';
-        }
+        projectTitle.value = '';
+        projectDesc.value = '';
     }
+}
 
 
 eduBtn.addEventListener('click', () => {
@@ -124,10 +118,10 @@ myForm.addEventListener('submit', (e) => {
     formData.address = addrsInput.value;
     formData.linkedin = linkdin.value;
     formData.github = github.value;
-    formData.work.companyName = companyName.value;
-    formData.work.workProfile = workProfile.value;
-    formData.work.workExp = workExp.value;
-    formData.work.workDesc = workDesc.value;
+    // formData.work.companyName = companyName.value;
+    // formData.work.workProfile = workProfile.value;
+    // formData.work.workExp = workExp.value;
+    // formData.work.workDesc = workDesc.value;
     formData.pInfo = pInfo.value;
     formData.careerObj = careerObj.value;
 
@@ -139,12 +133,38 @@ myForm.addEventListener('submit', (e) => {
     window.location.href = 'resume.html'
 })
 
-function workDescBtn() {
-    wDescIcon.addEventListener("click", () => {
-        if (!workDesc.value) return alert("please enter")
-            else{
-        console.log('clicked');
+function addWorkExperience() {
+
+    addWorkExp.addEventListener('click', () => {
+        let workObj = {
+            compName: companyName.value,
+            workProf: workProfile.value,
+            workEx: workExp.value,
+            workDes: workDesc.value
         }
+
+        formData.work.push(workObj) //push object to array
+
+        companyName.value = ''
+        workProfile.value = ''
+        workExp.value = ''
+        workDesc.value = ''
+
+        workExpShowUl.innerHTML = '' //clear the UI before adding new one's
+        formData.work.forEach((wor) => {
+            const { compName, workProf, workEx, workDes } = wor;
+
+            const li = document.createElement('li');
+            li.className = 'list-disc'
+            li.innerHTML = `
+                            <h1 class="font-semibold">${compName}</h1>
+                            <p class="text-sm">Working as a <span class="font-semibold text-base">${workProf}</span> from
+                            <span class="font-semibold text-base ">${workEx}</span> </p>
+                            <p class="text-gray-500 text-sm">${workDes}</p>
+                        `;
+            workExpShowUl.appendChild(li);
+
+        })
     })
 }
-workDescBtn();
+addWorkExperience()
