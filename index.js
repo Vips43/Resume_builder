@@ -31,6 +31,7 @@ let nameInput = document.getElementById('name'),
     workExpShowUl = document.getElementById('workExpShowUl'),
     projectTitle = document.getElementById('pTitle'),
     projectDesc = document.getElementById('pDesc'),
+    projectLink = document.getElementById('pLink'),
     projectUl = document.getElementById('projectUl'),
     eduBtn = document.getElementById('edu-btn'),
     courseInput = document.getElementById('courseName'),
@@ -41,24 +42,50 @@ let nameInput = document.getElementById('name'),
     skUl = document.getElementById('skUl')
 
 function projectBtn() {
-    formData.projects.projectTitle = projectTitle.value;
-    formData.projects.projectDesc = projectDesc.value;
-    if (projectTitle.value && projectDesc.value) {
+
+    const proj = {
+        projectTitle: projectTitle.value.trim(),
+        projectDesc: projectDesc.value.trim(),
+        projectLink: projectLink.value.trim()
+    };
+
+    // Push project object INTO array
+    formData.projects.push(proj);
+
+    // Validate inputs before creating UI
+    if (proj.projectTitle && proj.projectDesc && proj.projectLink) {
 
         let li = document.createElement('li');
-        li.innerHTML = `<strong>${projectTitle.value}</strong>
-                    <p>${projectDesc.value}</p>`;
+        li.className = 'relative hover:bg-gray-200 p-2 transition-all'
+        li.innerHTML = `
+           <h3 class="h3 text-sm font-semibold">${proj.projectTitle} <a  href="#" class="text-cyan-700 underline">${proj.projectLink}</a></h3>
+            <p class="text-xs">${proj.projectDesc}</p>
+            <div class="icon absolute right-2 top-2 text-gray-600 text-sm">
+                <i class="fa-solid fa-delete-left"></i>
+            </div>
+        `;
 
         projectUl.appendChild(li);
-        formData.projects.push({
-            projectTitle: projectTitle.value,
-            projectDesc: projectDesc.value
-        });
 
+        // Clear inputs
         projectTitle.value = '';
         projectDesc.value = '';
-    }
+        projectLink.value = '';
+
+        const icons = projectUl.querySelectorAll(".icon")
+        console.log(icons);
+        icons.forEach(icon => {
+            icon.addEventListener('click', (e) => {
+                let removableLI = e.target.closest('li')
+                removableLI.remove();
+
+            })
+        })
+
+    } else return 0;
+
 }
+
 
 
 eduBtn.addEventListener('click', () => {

@@ -47,21 +47,22 @@ projectUl.innerHTML = saveData.projects.map(project => {
 
 const workData = Array.isArray(saveData.work) ? saveData.work : [saveData.work];
 
-let li = document.createElement('li');
-li.innerHTML = workData.map(e => {
-    console.log(e.compName);
-    
-    return `
-    <h1 class="font-semibold">${e.compName}</h1>
-    <p class="text-sm">Working as a <span class="font-semibold text-base">${e.workProf}</span> from
-    <span class="font-semibold text-base ">${e.workEx}</span> </p>
+if(workData){
+    let li = document.createElement('li');
+    li.innerHTML = workData.map(e => {
+        console.log(e.compName);
+        
+        return `
+        <h1 class="font-semibold">${e.compName}</h1>
+        <p class="text-sm">Working as a <span class="font-semibold text-base">${e.workProf}</span> from
+        <span class="font-semibold text-base ">${e.workEx}</span> </p>
     <p class="text-gray-500 text-sm">${e.workDes}</p>
     `
 }).join('')
 
 work.appendChild(li);
+} else return;
 
-localStorage.removeItem('data')
-
-
-
+document.addEventListener("DOMContentLoaded",()=>{
+    // localStorage.removeItem("formData");
+})
